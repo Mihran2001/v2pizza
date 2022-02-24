@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Button } from "antd";
 
 export const Header = styled.header`
   display: flex;
@@ -11,4 +12,19 @@ export const Header = styled.header`
 
 export const LeftBox = styled.div``;
 
-export const RightBox = styled.div``;
+export const RightBox = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const SignIn = styled(Button)`
+  border-radius: 10px;
+`;
+
+export const LogoCoinBox = styled.span`
+  text-align: center;
+  padding: 0px 20px;
+`;
+
+export const LogoLink = styled.a``;
