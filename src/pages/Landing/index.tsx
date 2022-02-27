@@ -11,7 +11,9 @@ function Landing() {
     <Container>
       <PageHeader />
       <Nav />
-      <Section>{/* <Slider></Slider> */}</Section>
+      <Section noPadding={false}>
+        <Slider />
+      </Section>
     </Container>
   );
 }
