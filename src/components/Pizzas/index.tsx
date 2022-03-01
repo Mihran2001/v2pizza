@@ -21,17 +21,14 @@ const Pizzas: React.FC = () => {
           <DescrBox>{item.name}</DescrBox>
           <PriceBox>
             <span> {item.smallPrice} </span>
-            <PizzaTypeModal
-              isVisible={isModalVisible}
-              setIsModalVisible={setIsModalVisible}
-            />
-            <SButton onClick={() => setIsModalVisible((prev) => !prev)}>
-              {" "}
-              Выбрать{" "}
-            </SButton>
+            <SButton onClick={() => setIsModalVisible(true)}> Выбрать </SButton>
           </PriceBox>
         </PizzaBox>
       ))}
+      <PizzaTypeModal
+        isModalVisible={isModalVisible}
+        setIsModalVisible={setIsModalVisible}
+      />
     </PizzasWrapper>
   );
 };
