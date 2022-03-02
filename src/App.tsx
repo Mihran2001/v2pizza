@@ -5,11 +5,11 @@ import Container from "./PageContainer";
 import PageHeader from "./components/Header";
 import "antd/dist/antd.css";
 import Landing from "./pages/Landing";
-import { DispatchContext, initialState, StateContext } from "./store";
+import { DispatchContext, initialState, StateContext } from "./store/constants";
 import reducer from "./store/Reducers";
 
 function App() {
-  const [state, dispatch]: any = useReducer(reducer, initialState);
+  const [state, dispatch]: any = useReducer<any>(reducer, initialState);
 
   return (
     <StateContext.Provider value={state}>

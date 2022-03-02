@@ -1,4 +1,15 @@
-export const ArticlesContent = [
+export interface IArticlesContent {
+  smallPrice: number;
+  middlePrice: number;
+  bigPrice: number;
+  srcSet: string;
+  name: string;
+  id: number;
+  type: string;
+  count: number;
+}
+
+export const ArticlesContent: IArticlesContent[] = [
   {
     smallPrice: 395,
     middlePrice: 599,
