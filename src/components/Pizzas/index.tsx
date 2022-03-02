@@ -25,7 +25,7 @@ const Pizzas: React.FC = () => {
 
   const btnOnClick = (pizzaData: IArticlesContent) => {
     setIsModalVisible(true);
-    pizzaDataDispatch({ type: "ADD_PIZZA_DATA" });
+    pizzaDataDispatch({ type: "ADD_PIZZA_DATA", payload: { data: pizzaData } });
   };
 
   return (

@@ -5,9 +5,10 @@ interface IChoosenPizzas {
   id: number;
   size: string;
   count: number;
-  minPrice: number;
-  mediumPrice: number;
+  smallPrice: number;
+  middlePrice: number;
   bigPrice: number;
+  srcSet: string;
 }
 
 export interface IState {
