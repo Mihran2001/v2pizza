@@ -13,10 +13,10 @@ const PizzaTypeModal: React.FC<{
   const dispatch = useContext(DispatchContext);
   const [pizzaSize, setPizzaSize] = useState("");
 
-  console.log(store.choosenPizzas);
+  console.log(store, "store");
 
   const choosePizza = () => {
-    dispatch({ type: "ADD_COUNT" });
+    // dispatch({ type: "ADD_COUNT" });
     dispatch({ type: "CHOOSE_SIZE", payload: { size: pizzaSize } });
     setIsModalVisible(false);
   };

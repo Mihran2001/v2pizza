@@ -21,11 +21,14 @@ const Pizzas: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
 
   const pizzaDataState = useContext(StateContext);
-  const pizzaDataDispatch = useContext(DispatchContext);
+  const modalPizzaDataDispatch = useContext(DispatchContext);
 
   const btnOnClick = (pizzaData: IArticlesContent) => {
     setIsModalVisible(true);
-    pizzaDataDispatch({ type: "ADD_PIZZA_DATA", payload: { data: pizzaData } });
+    modalPizzaDataDispatch({
+      type: "ADD_PIZZA_MODAL",
+      payload: { data: pizzaData },
+    });
   };
 
   return (
