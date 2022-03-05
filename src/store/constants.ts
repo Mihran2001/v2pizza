@@ -15,12 +15,12 @@ export interface IState {
   // count: number;
   // size: string;
   choosenPizzas: IChoosenPizzas[];
-  modalPizzaData: IChoosenPizzas;
+  // modalPizzaData: IChoosenPizzas;
 }
 
 export const initialState: any = {
   choosenPizzas: [],
-  modalPizzaData: {},
+  // modalPizzaData: {},
 };
 
 export const StateContext = React.createContext(initialState);

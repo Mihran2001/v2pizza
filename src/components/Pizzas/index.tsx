@@ -11,24 +11,17 @@ import { SButton } from "../Button";
 import PizzaTypeModal from "../Modal/index";
 import { DispatchContext, StateContext } from "../../store/constants";
 
-interface IPizzaData {
-  name: string;
-  id: number;
-  imgSrc: any;
-}
-
 const Pizzas: React.FC = () => {
   const [isModalVisible, setIsModalVisible] = useState(false);
-
-  const pizzaDataState = useContext(StateContext);
-  const modalPizzaDataDispatch = useContext(DispatchContext);
+  const [modalData, setModalData]: any = useState({});
 
   const btnOnClick = (pizzaData: IArticlesContent) => {
     setIsModalVisible(true);
-    modalPizzaDataDispatch({
-      type: "ADD_PIZZA_MODAL",
-      payload: { data: pizzaData },
-    });
+    setModalData(pizzaData);
+    // modalPizzaDataDispatch({
+    //   type: "ADD_PIZZA_MODAL",
+    //   payload: { data: pizzaData },
+    // });
   };
 
   return (
@@ -46,6 +39,7 @@ const Pizzas: React.FC = () => {
       <PizzaTypeModal
         isModalVisible={isModalVisible}
         setIsModalVisible={setIsModalVisible}
+        modalData={modalData}
       />
     </PizzasWrapper>
   );

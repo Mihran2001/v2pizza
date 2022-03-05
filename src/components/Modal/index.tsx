@@ -4,16 +4,18 @@ import { Modal, Button, Radio, Row, Col } from "antd";
 import { AntModal } from "./styled";
 import { StyledButton } from "../Button/styles";
 import { DispatchContext, StateContext } from "../../store/constants";
+import { IArticlesContent } from "../../constants/data";
 
 const PizzaTypeModal: React.FC<{
   isModalVisible: boolean;
   setIsModalVisible: any;
-}> = ({ isModalVisible, setIsModalVisible }) => {
+  modalData: IArticlesContent;
+}> = ({ isModalVisible, setIsModalVisible, modalData }) => {
   const store = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
   const [pizzaSize, setPizzaSize] = useState("");
 
-  console.log(store, "store");
+  console.log(modalData);
 
   const choosePizza = () => {
     // dispatch({ type: "ADD_COUNT" });
