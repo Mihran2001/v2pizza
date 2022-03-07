@@ -13,7 +13,7 @@ import { StateContext } from "../../store/constants";
 const navItems = ["Пицца", "Комбо", "Напитки"];
 
 const Nav = () => {
-  const { count } = useContext(StateContext);
+  const { totalCount } = useContext(StateContext);
   return (
     <Navbar>
       <Menu>
@@ -26,7 +26,7 @@ const Nav = () => {
       <SButton shape="round" style={{ display: "flex" }}>
         Корзина
         <Line />
-        <CounterBox>{count}</CounterBox>
+        <CounterBox>{totalCount}</CounterBox>
       </SButton>
     </Navbar>
   );

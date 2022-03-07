@@ -7,16 +7,19 @@ import "antd/dist/antd.css";
 import Landing from "./pages/Landing";
 import { DispatchContext, initialState, StateContext } from "./store/constants";
 import reducer from "./store/Reducers";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   const [state, dispatch]: any = useReducer<any>(reducer, initialState);
 
   return (
-    <StateContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>
-        <Landing />
-      </DispatchContext.Provider>
-    </StateContext.Provider>
+    <BrowserRouter>
+      <StateContext.Provider value={state}>
+        <DispatchContext.Provider value={dispatch}>
+          <Landing />
+        </DispatchContext.Provider>
+      </StateContext.Provider>
+    </BrowserRouter>
   );
 }
 
