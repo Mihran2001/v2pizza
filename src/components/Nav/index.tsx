@@ -9,10 +9,12 @@ import {
 } from "./styles";
 import { SButton } from "../Button";
 import { StateContext } from "../../store/constants";
+import {useNavigate} from 'react-router-dom';
 
 const navItems = ["Пицца", "Комбо", "Напитки"];
 
 const Nav = () => {
+  const navigate = useNavigate();
   const { totalCount } = useContext(StateContext);
   return (
     <Navbar>
@@ -23,7 +25,7 @@ const Nav = () => {
           </MenuItems>
         ))}
       </Menu>
-      <SButton shape="round" style={{ display: "flex" }}>
+      <SButton shape="round" style={{ display: "flex" }} onClick={() => navigate('/basket')}>
         Корзина
         <Line />
         <CounterBox>{totalCount}</CounterBox>

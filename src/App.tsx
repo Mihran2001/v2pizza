@@ -8,6 +8,7 @@ import Landing from "./pages/Landing";
 import { DispatchContext, initialState, StateContext } from "./store/constants";
 import reducer from "./store/Reducers";
 import { BrowserRouter } from "react-router-dom";
+import MainRoutes from "./Routes";
 
 function App() {
   const [state, dispatch]: any = useReducer<any>(reducer, initialState);
@@ -16,7 +17,7 @@ function App() {
     <BrowserRouter>
       <StateContext.Provider value={state}>
         <DispatchContext.Provider value={dispatch}>
-          <Landing />
+          <MainRoutes />
         </DispatchContext.Provider>
       </StateContext.Provider>
     </BrowserRouter>

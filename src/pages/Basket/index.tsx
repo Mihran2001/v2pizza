@@ -1,7 +1,8 @@
 import React from "react";
+import ChoosenPizzas from "../../components/ChoosenPizzas";
 
 const BasketPage = () => {
-  return <h1>dsa</h1>;
+  return <ChoosenPizzas />;
 };
 
 export default BasketPage;

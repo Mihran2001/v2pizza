@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 type Props = {
   style?: React.CSSProperties;
-  noPadding: boolean;
+  noPadding?: boolean;
 };
 
 const Wrapper = styled.section<{ $noPadding?: boolean }>`
