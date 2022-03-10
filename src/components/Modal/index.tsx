@@ -14,19 +14,20 @@ const PizzaTypeModal: React.FC<{
   const store = useContext(StateContext);
   const dispatch = useContext(DispatchContext);
   const [count, setCount] = useState(0);
-  const [pizzaSize, setPizzaSize] = useState("");
+  const [pizzaSize, setPizzaSize] = useState("Small");
 
   console.log(modalData, "modalDataaaa");
 
-  const choosePizza = () => {
+  const choosePizza = (id: number) => {
     // dispatch({ type: "ADD_COUNT" });
     dispatch({
       type: "ADD_COUNT",
       payload: { count: store.totalCount + 1 },
     });
-    dispatch({ type: "CHOOSE_SIZE", payload: { size: pizzaSize } });
-    dispatch({ type: "CHOOSEN_PIZZAS", payload: { data: modalData } });
-    // dispatch({ type: "CHOOSEN_PIZZAS", payload: { data: modalData } });
+    dispatch({
+      type: "CHOOSEN_PIZZAS",
+      payload: { data: { id, size: pizzaSize } },
+    });
 
     setIsModalVisible(false);
   };
@@ -66,7 +67,9 @@ const PizzaTypeModal: React.FC<{
                 Big
               </Radio.Button>
             </Radio.Group>
-            <StyledButton onClick={choosePizza}>Choose</StyledButton>
+            <StyledButton onClick={() => choosePizza(modalData.id)}>
+              Choose
+            </StyledButton>
           </Col>
         </Row>
       </AntModal>

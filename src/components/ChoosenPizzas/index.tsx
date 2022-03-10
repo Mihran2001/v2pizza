@@ -18,7 +18,7 @@ import { ReactComponent as MinusIcon } from "../../assets/svg/minus.svg";
 const ChoosenPizzas = () => {
   const { choosenPizzas } = useContext(StateContext);
 
-  console.log(choosenPizzas);
+  console.log(choosenPizzas, "choosenPizzasss");
 
   return (
     <PageContainer>
@@ -45,24 +45,6 @@ const ChoosenPizzas = () => {
             </PizzaBox>
           );
         })}
-        {/* <PizzaBox>
-          <PizzaImgBox src="https://dodopizza-a.akamaihd.net/static/Img/Products/4bf37f95fcd341d780ab1ae93f64e3f4_366x366.jpeg" />
-          <PizzaNameBox>
-            <span>some pizza</span>
-          </PizzaNameBox>
-          <PriceBox>
-            <span>395</span>
-          </PriceBox>
-          <CountBox>
-            <CounterButton>
-              <MinusIcon />
-            </CounterButton>
-                1
-            <CounterButton>
-              <PlusIcon />
-            </CounterButton>
-          </CountBox>
-        </PizzaBox> */}
       </ChoosenPizzasBox>
     </PageContainer>
   );

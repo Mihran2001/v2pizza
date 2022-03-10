@@ -6,9 +6,11 @@ export default function reducer(state: IState, action: any) {
   switch (action.type) {
     case "ADD_COUNT":
       return { ...state, totalCount: action.payload.count };
+    // case "CHOOSEN_PIZZAS":
+    //   state.choosenPizzas.push(action.payload.data);
+    //   return state;
     case "CHOOSEN_PIZZAS":
       state.choosenPizzas.push(action.payload.data);
-      // console.log(" state)", state);
       return state;
     default:
       return state;
