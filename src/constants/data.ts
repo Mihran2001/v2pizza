@@ -1,4 +1,4 @@
-export interface IArticlesContent {
+export type IArticlesContent = {
   smallPrice: number;
   middlePrice: number;
   bigPrice: number;
@@ -8,35 +8,35 @@ export interface IArticlesContent {
   size: string;
   // type: string;
   count: number;
-}
-
-const dataMap = {
-  0: {
-    smallPrice: 395,
-    middlePrice: 599,
-    bigPrice: 749,
-    srcSet:
-      "https://dodopizza-a.akamaihd.net/static/Img/Products/64a38569a93246108d8f8b0cefd72fab_366x366.jpeg",
-    name: "Колбаски Барбекю",
-    id: 0,
-    // type: "Мясные",
-    count: 1,
-    size: "middle",
-  },
-
-  1: {
-    smallPrice: 395,
-    middlePrice: 599,
-    bigPrice: 749,
-    srcSet:
-      "https://dodopizza-a.akamaihd.net/static/Img/Products/4bf37f95fcd341d780ab1ae93f64e3f4_366x366.jpeg",
-    name: "Зенит",
-    id: 1,
-    // type: "Острые",
-    count: 1,
-    size: "middle",
-  },
 };
+
+// const dataMap = {
+//   0: {
+//     smallPrice: 395,
+//     middlePrice: 599,
+//     bigPrice: 749,
+//     srcSet:
+//       "https://dodopizza-a.akamaihd.net/static/Img/Products/64a38569a93246108d8f8b0cefd72fab_366x366.jpeg",
+//     name: "Колбаски Барбекю",
+//     id: 0,
+//     // type: "Мясные",
+//     count: 1,
+//     size: "middle",
+//   },
+
+//   1: {
+//     smallPrice: 395,
+//     middlePrice: 599,
+//     bigPrice: 749,
+//     srcSet:
+//       "https://dodopizza-a.akamaihd.net/static/Img/Products/4bf37f95fcd341d780ab1ae93f64e3f4_366x366.jpeg",
+//     name: "Зенит",
+//     id: 1,
+//     // type: "Острые",
+//     count: 1,
+//     size: "middle",
+//   },
+// };
 
 export const ArticlesContent: IArticlesContent[] = [
   {

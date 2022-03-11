@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useCallback, useContext, useMemo, useState } from "react";
 import { PageContainer } from "../../PageContainer/styles";
 import Section from "../Section";
 import {
@@ -14,9 +14,21 @@ import { DispatchContext, StateContext } from "../../store/constants";
 import { SButton } from "../Button";
 import { ReactComponent as PlusIcon } from "../../assets/svg/plus.svg";
 import { ReactComponent as MinusIcon } from "../../assets/svg/minus.svg";
+import { mapFromArray } from "../../helpers/dataMap";
+import { ArticlesContent } from "../../constants/data";
 
 const ChoosenPizzas = () => {
   const { choosenPizzas } = useContext(StateContext);
+  const dataMap = useMemo(() => mapFromArray(ArticlesContent), []);
+  const dispatch = useContext(DispatchContext);
+
+  const addCountDispatch = (id: number) => {
+    dispatch({ type: "ADD_COUNT", payload: { id } });
+  };
+
+  const reduceCountDispatch = (id: number) => {
+    dispatch({ type: "REDUCE_COUNT", payload: { id } });
+  };
 
   console.log(choosenPizzas, "choosenPizzasss");
 
@@ -24,21 +36,27 @@ const ChoosenPizzas = () => {
     <PageContainer>
       <ChoosenPizzasBox>
         {choosenPizzas.map((item: any) => {
+          const itemId = item.id;
           return (
             <PizzaBox>
-              <PizzaImgBox src="https://dodopizza-a.akamaihd.net/static/Img/Products/4bf37f95fcd341d780ab1ae93f64e3f4_366x366.jpeg" />
+              {/* <PizzaImgBox src={[dataMap[`${itemId}`].srcSet]} /> */}
+              <PizzaImgBox
+                src={
+                  "https://dodopizza-a.akamaihd.net/static/Img/Products/64a38569a93246108d8f8b0cefd72fab_366x366.jpeg"
+                }
+              />
               <PizzaNameBox>
-                <span>{item.name}</span>
+                <span>{dataMap[`${itemId}`].name}</span>
               </PizzaNameBox>
               <PriceBox>
-                <span>{item.smallPrice}</span>
+                <span>{dataMap[`${itemId}`].smallPrice}</span>
               </PriceBox>
               <CountBox>
-                <CounterButton>
+                <CounterButton onClick={() => reduceCountDispatch(item.id)}>
                   <MinusIcon />
                 </CounterButton>
-                {item.count}
-                <CounterButton>
+                {dataMap[`${itemId}`].count}
+                <CounterButton onClick={() => addCountDispatch(item.id)}>
                   <PlusIcon />
                 </CounterButton>
               </CountBox>
