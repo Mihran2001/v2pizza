@@ -23,7 +23,7 @@ const ChoosenPizzas = () => {
   const dispatch = useContext(DispatchContext);
 
   const addCountDispatch = (id: number) => {
-    dispatch({ type: "ADD_COUNT", payload: { id } });
+    dispatch({ type: "ADD_CHOOSEN_COUNT", payload: { id } });
   };
 
   const reduceCountDispatch = (id: number) => {
@@ -55,7 +55,8 @@ const ChoosenPizzas = () => {
                 <CounterButton onClick={() => reduceCountDispatch(item.id)}>
                   <MinusIcon />
                 </CounterButton>
-                {dataMap[`${itemId}`].count}
+                {/* {dataMap[`${itemId}`].count} */}
+                {item.count}
                 <CounterButton onClick={() => addCountDispatch(item.id)}>
                   <PlusIcon />
                 </CounterButton>

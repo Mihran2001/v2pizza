@@ -16,17 +16,25 @@ const PizzaTypeModal: React.FC<{
   const [count, setCount] = useState(0);
   const [pizzaSize, setPizzaSize] = useState("Small");
 
-  console.log(modalData, "modalDataaaa");
+  // console.log(modalData, "modalDataaaa");
+
+  console.log(store.choosenPizzas, "Chooosen Pizzass");
 
   const choosePizza = (id: number) => {
-    // dispatch({ type: "ADD_COUNT" });
-    dispatch({
-      type: "ADD_COUNT",
-      payload: { count: store.totalCount + 1 },
-    });
+    // dispatch({
+    //   type: "ADD_COUNT",
+    //   payload: { count: store.totalCount + 1 },
+    // });
     dispatch({
       type: "CHOOSEN_PIZZAS",
-      payload: { data: { id, size: pizzaSize } },
+      payload: {
+        data: {
+          id,
+          size: pizzaSize,
+          count: 1,
+          totalCount: store.totalCount + 1,
+        },
+      },
     });
 
     setIsModalVisible(false);
