@@ -10,10 +10,43 @@ export default function reducer(state: IState, action: any) {
     //   state.choosenPizzas.push(action.payload.data);
     //   return state;
     case "CHOOSEN_PIZZAS":
+      // let isFind = false;
+      // const findedItem = state.choosenPizzas.find((element, index, array):any => {
+      //   // if(element.id === action.payload.data.id) {
+
+      //   // }
+      //   return element.id === action.payload.data.id
+      // })
+
+      // for (let i = 0; i < state.choosenPizzas.length; ++i) {
+      //   if (state.choosenPizzas[i].id === action.payload.data.id) {
+      //     isFind = true;
+      //   }
+      // }
+
+      // if (isFind === true) {
+      //   return { ...state, totalCount: action.payload.data.totalCount, choosenPizzas: [...state.choosenPizzas, ] };
+      // }
+
+      const findedIndex = state.choosenPizzas.findIndex((element): any => {
+        return element.id === action.payload.data.id;
+      });
+      if (findedIndex === -1) {
+        return {
+          ...state,
+          choosenPizzas: [...state.choosenPizzas, action.payload.data],
+          totalCount: action.payload.data.totalCount,
+        };
+      }
+      const count = state.choosenPizzas[findedIndex].count + 1;
+      const { choosenPizzas } = state;
+
+      choosenPizzas[findedIndex] = { ...choosenPizzas[findedIndex], count };
+
       return {
         ...state,
-        choosenPizzas: [...state.choosenPizzas, action.payload.data],
         totalCount: action.payload.data.totalCount,
+        choosenPizzas,
       };
 
     case "ADD_CHOOSEN_COUNT":

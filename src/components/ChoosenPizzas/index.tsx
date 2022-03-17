@@ -37,6 +37,9 @@ const ChoosenPizzas = () => {
       <ChoosenPizzasBox>
         {choosenPizzas.map((item: any) => {
           const itemId = item.id;
+          if (item.count < 1) {
+            return;
+          }
           return (
             <PizzaBox>
               {/* <PizzaImgBox src={[dataMap[`${itemId}`].srcSet]} /> */}
