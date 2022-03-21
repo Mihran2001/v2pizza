@@ -2,32 +2,19 @@ import React, { useReducer } from "react";
 import { IState } from "../constants";
 import { ArticlesContent, IArticlesContent } from "../../constants/data";
 
+enum ActionTypes {
+  ADD_COUNT = "ADD_COUNT",
+  CHOOSEN_PIZZAS = "CHOOSEN_PIZZAS",
+  ADD_CHOOSEN_COUNT = "ADD_CHOOSEN_COUNT",
+  REDUCE_COUNT = "REDUCE_COUNT",
+}
+
 export default function reducer(state: IState, action: any) {
   switch (action.type) {
-    case "ADD_COUNT":
+    case ActionTypes.ADD_COUNT:
       return { ...state, totalCount: action.payload.count };
-    // case "CHOOSEN_PIZZAS":
-    //   state.choosenPizzas.push(action.payload.data);
-    //   return state;
-    case "CHOOSEN_PIZZAS":
-      // let isFind = false;
-      // const findedItem = state.choosenPizzas.find((element, index, array):any => {
-      //   // if(element.id === action.payload.data.id) {
 
-      //   // }
-      //   return element.id === action.payload.data.id
-      // })
-
-      // for (let i = 0; i < state.choosenPizzas.length; ++i) {
-      //   if (state.choosenPizzas[i].id === action.payload.data.id) {
-      //     isFind = true;
-      //   }
-      // }
-
-      // if (isFind === true) {
-      //   return { ...state, totalCount: action.payload.data.totalCount, choosenPizzas: [...state.choosenPizzas, ] };
-      // }
-
+    case ActionTypes.CHOOSEN_PIZZAS:
       const findedIndex = state.choosenPizzas.findIndex((element): any => {
         return element.id === action.payload.data.id;
       });
@@ -49,7 +36,7 @@ export default function reducer(state: IState, action: any) {
         choosenPizzas,
       };
 
-    case "ADD_CHOOSEN_COUNT":
+    case ActionTypes.ADD_CHOOSEN_COUNT:
       return {
         ...state,
         choosenPizzas: state.choosenPizzas.map((item) => {
@@ -63,18 +50,20 @@ export default function reducer(state: IState, action: any) {
         }),
       };
 
-    case "REDUCE_COUNT":
+    case ActionTypes.REDUCE_COUNT:
       return {
         ...state,
-        choosenPizzas: state.choosenPizzas.map((item) => {
-          if (item.id === action.payload.id) {
-            return {
-              ...item,
-              count: item.count - 1,
-            };
-          }
-          return item;
-        }),
+        choosenPizzas: state.choosenPizzas
+          .map((item) => {
+            if (item.id === action.payload.id) {
+              return {
+                ...item,
+                count: item.count - 1,
+              };
+            }
+            return item;
+          })
+          .filter((pizza) => pizza.count >= 1),
       };
 
     default:
